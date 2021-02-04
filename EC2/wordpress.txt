@@ -1,0 +1,10 @@
+#!/bin/bash
+yum install php-mysqlnd php-fpm mariadb-server httpd tar curl php-json wget -y
+amazon-linux-extras install php7.3
+curl https://wordpress.org/latest.tar.gz --output wordpress.tar.gz
+tar xf wordpress.tar.gz
+cp -r wordpress /var/www/html
+systemctl start httpd
+systemctl enable httpd
+setenforce 0
+
